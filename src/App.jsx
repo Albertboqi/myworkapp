@@ -1,3 +1,4 @@
+import { Button } from "antd";
 import React from "react";
 import { connect } from "react-redux";
 import { Outlet } from "react-router-dom";
@@ -20,6 +21,7 @@ const App = (props) => {
         </li>
       </ul>
       <Outlet />
+      <Button></Button>
     </>
   );
 };
