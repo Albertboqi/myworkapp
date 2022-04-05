@@ -1,41 +1,27 @@
-import { Button } from "antd";
-import React from "react";
-import { connect } from "react-redux";
-import { Outlet } from "react-router-dom";
-
-const App = (props) => {
+import { Avatar, Button, Layout, Menu, Tag } from 'antd';
+import React from 'react';
+import './App.css';
+const { Header, Content, Sider } = Layout
+const App = () => {
   return (
-    <>
-      <div>{props.num}</div>
-      <button onClick={() => props.leijia()}>+</button>
+    <Layout>
+      <Header className="header">
+        <div className='logo'>
+          <Button>test</Button>
+          <Tag closable>eee</Tag>
+          <Avatar />
+        </div>
 
-      <ul>
-        <li>
-          <a href="/detail">detail</a>
-        </li>
-        <li>
-          <a href="/list">list</a>
-        </li>
-        <li>
-          <a href="/">Homepage</a>
-        </li>
-      </ul>
-      <Outlet />
-      <Button></Button>
-    </>
+      </Header>
+      <Layout>
+        <Sider width={200} className="sidte-layout-background">
+          <Menu>
+            <Menu.Item>1231231</Menu.Item>
+          </Menu>
+        </Sider>
+      </Layout>
+    </Layout>
   );
-};
+}
 
-const mapStateToProps = (state) => {
-  return { num: state.num, moduleId: state.moduleId };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    leijia() {
-      const action = { type: "addNum", value: 123 };
-      dispatch(action);
-    },
-  };
-};
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
